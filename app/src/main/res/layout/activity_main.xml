@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/title_view"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/next_btn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/right_arrow"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/title_view"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_view"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="146dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/walk_background"
+                android:layout_width="match_parent"
+                android:layout_height="330dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/background_white"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/walk_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/walk"
+                app:layout_constraintLeft_toLeftOf="@+id/walk_background"
+                app:layout_constraintTop_toTopOf="@+id/walk_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/pretendard_semibold"
+                android:text="오늘의 걸음 수"
+                android:textColor="#424144"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="@+id/walk_icon"
+                app:layout_constraintLeft_toRightOf="@+id/walk_icon"
+                app:layout_constraintTop_toTopOf="@+id/walk_icon" />
+
+            <ProgressBar
+                android:id="@+id/circle_progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/circle_shape"
+                android:indeterminate="false"
+                android:max="10000"
+                android:progress="1437"
+                android:progressDrawable="@drawable/circular_progress_bar"
+                app:layout_constraintBottom_toBottomOf="@+id/walk_background"
+                app:layout_constraintLeft_toLeftOf="@+id/walk_background"
+                app:layout_constraintRight_toRightOf="@+id/walk_background"
+                app:layout_constraintTop_toTopOf="@+id/walk_background" />
+
+            <TextView
+                android:id="@+id/walk_index_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sun_b"
+                android:text="1437"
+                android:textColor="#313131"
+                android:textSize="40dp"
+                app:layout_constraintBottom_toBottomOf="@+id/circle_progressBar"
+                app:layout_constraintLeft_toLeftOf="@id/circle_progressBar"
+                app:layout_constraintRight_toRightOf="@+id/circle_progressBar"
+                app:layout_constraintTop_toTopOf="@+id/circle_progressBar" />
+
+            <TextView
+                android:id="@+id/walk_max"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_light"
+                android:text="/10000 걸음"
+                android:textColor="#c2c2c2"
+                android:textSize="12dp"
+                app:layout_constraintLeft_toLeftOf="@id/walk_background"
+                app:layout_constraintRight_toRightOf="@+id/walk_background"
+                app:layout_constraintTop_toBottomOf="@+id/walk_index_data" />
+
+            <TextView
+                android:id="@+id/walk_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_semibold"
+                android:text="오늘도 힘내서 걸어봐요 !"
+                android:textColor="#313131"
+                android:textSize="16dp"
+                app:layout_constraintLeft_toLeftOf="@+id/walk_background"
+                app:layout_constraintRight_toRightOf="@+id/walk_background"
+                app:layout_constraintTop_toBottomOf="@+id/circle_progressBar" />
+
+            <ProgressBar
+                android:id="@+id/horizontal_progressbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:max="100"
+                android:progress="15"
+                android:progressDrawable="@drawable/seek_progressbar"
+                app:layout_constraintLeft_toLeftOf="@+id/walk_background"
+                app:layout_constraintRight_toLeftOf="@+id/progress_kmdata"
+                app:layout_constraintTop_toBottomOf="@+id/walk_text1" />
+
+            <TextView
+                android:id="@+id/progress_kmdata"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/pretendard_semibold"
+                android:text="0.15"
+                android:textColor="#7698cd"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/horizontal_progressbar"
+                app:layout_constraintLeft_toRightOf="@+id/horizontal_progressbar"
+                app:layout_constraintRight_toLeftOf="@+id/progress_km"
+                app:layout_constraintTop_toTopOf="@+id/horizontal_progressbar" />
+
+            <TextView
+                android:id="@+id/progress_km"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/pretendard_regular"
+                android:text="km"
+                android:textColor="#7698cd"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/horizontal_progressbar"
+                app:layout_constraintLeft_toRightOf="@+id/progress_kmdata"
+                app:layout_constraintRight_toRightOf="@+id/walk_background"
+                app:layout_constraintTop_toTopOf="@+id/horizontal_progressbar" />
+
+            <ImageView
+                android:id="@+id/heart_background"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_white"
+                app:layout_constraintTop_toBottomOf="@+id/walk_background" />
+
+            <ImageView
+                android:id="@+id/heart_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/heart"
+                app:layout_constraintLeft_toLeftOf="@+id/heart_background"
+                app:layout_constraintTop_toTopOf="@+id/heart_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/pretendard_semibold"
+                android:text="심전도"
+                android:textColor="#424144"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="@+id/heart_icon"
+                app:layout_constraintLeft_toRightOf="@+id/heart_icon"
+                app:layout_constraintTop_toTopOf="@+id/heart_icon" />
+
+            <TextView
+                android:id="@+id/heart_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/sun_b"
+                android:text="97"
+                android:textColor="#313131"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/heart_background"
+                app:layout_constraintLeft_toLeftOf="@+id/heart_background" />
+
+            <TextView
+                android:id="@+id/heart_bpm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="BPM"
+                android:textColor="#b9b9b9"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/heart_background"
+                app:layout_constraintLeft_toRightOf="@+id/heart_data" />
+
+            <ImageView
+                android:id="@+id/otwo_background"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_white"
+                app:layout_constraintTop_toBottomOf="@+id/heart_background" />
+
+            <ImageView
+                android:id="@+id/otwot_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ori"
+                app:layout_constraintLeft_toLeftOf="@+id/otwo_background"
+                app:layout_constraintTop_toTopOf="@+id/otwo_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/pretendard_semibold"
+                android:text="산소포화도"
+                android:textColor="#424144"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="@+id/otwot_icon"
+                app:layout_constraintLeft_toRightOf="@+id/otwot_icon"
+                app:layout_constraintTop_toTopOf="@+id/otwot_icon" />
+
+            <TextView
+                android:id="@+id/otwo_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/sun_b"
+                android:text="58"
+                android:textColor="#313131"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/otwo_background"
+                app:layout_constraintLeft_toLeftOf="@+id/otwo_background" />
+
+            <TextView
+                android:id="@+id/otwo_bpm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="%"
+                android:textColor="#b9b9b9"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/otwo_background"
+                app:layout_constraintLeft_toRightOf="@+id/otwo_data" />
+
+            <ImageView
+                android:id="@+id/night_background"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_white"
+                app:layout_constraintTop_toBottomOf="@+id/otwo_background" />
+
+            <ImageView
+                android:id="@+id/night_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ori"
+                app:layout_constraintLeft_toLeftOf="@+id/night_background"
+                app:layout_constraintTop_toTopOf="@+id/night_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/pretendard_semibold"
+                android:text="수면 분석"
+                android:textColor="#424144"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="@+id/night_icon"
+                app:layout_constraintLeft_toRightOf="@+id/night_icon"
+                app:layout_constraintTop_toTopOf="@+id/night_icon" />
+
+            <TextView
+                android:id="@+id/night_data_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/sun_b"
+                android:text="4"
+                android:textColor="#313131"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/night_background"
+                app:layout_constraintLeft_toLeftOf="@+id/night_background" />
+
+            <TextView
+                android:id="@+id/night_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="시간"
+                android:textColor="#313131"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/night_background"
+                app:layout_constraintLeft_toRightOf="@+id/night_data_hour" />
+
+            <TextView
+                android:id="@+id/night_data_minute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/sun_b"
+                android:text="29"
+                android:textColor="#313131"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/night_background"
+                app:layout_constraintLeft_toRightOf="@+id/night_hour" />
+
+            <TextView
+                android:id="@+id/night_minute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="분"
+                android:textColor="#313131"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/night_background"
+                app:layout_constraintLeft_toRightOf="@+id/night_data_minute" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toBottomOf="@+id/night_background" />
+
+            <TextView
+                android:id="@+id/text_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="status"
+                android:textSize="20dp"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_paired"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="704dp"
+                android:onClick="onClickButtonPaired"
+                android:text="Paired Devices"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_status" />
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:onClick="onClickButtonSearch"
+                android:text="Search"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_paired" />
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:onClick="onClickButtonSend"
+                android:text="Send a"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_search" />
+
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_send" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
